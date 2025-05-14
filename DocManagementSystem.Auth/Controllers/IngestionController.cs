@@ -1,6 +1,7 @@
 ﻿using DocManagementSystem.Services.Interface.Ingestion;
 using DocManagementSystem.Shared.Enums;
 using DocManagementSystem.Shared.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ namespace DocManagementSystem.Auth.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class IngestionController : ControllerBase
     {
         private readonly IIngestionService _ingestionService;
