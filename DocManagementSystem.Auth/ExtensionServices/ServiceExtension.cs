@@ -14,6 +14,10 @@ using DocManagementSystem.Reposetories.Interface.Auth;
 using DocManagementSystem.Reposetories.Implementation.Auth;
 using Microsoft.AspNetCore.Identity;
 using DocManagementSystem.Shared.DTOs;
+using DocManagementSystem.Services.Implementation.Ingestion;
+using DocManagementSystem.Services.Interface.Ingestion;
+using DocManagementSystem.Repositories.Interface.Ingestion;
+using DocManagementSystem.Repositories.Implementation.Ingestion;
 
 namespace DocManagementSystem.Shared.ExtensionServices
 {
@@ -26,10 +30,12 @@ namespace DocManagementSystem.Shared.ExtensionServices
             services.AddScoped<IAuthService, AuthService>();
             services.AddTransient<IDocumentService, DocumentService>();
             services.AddTransient<IPasswordHasher<LoginModel>, PasswordHasher<LoginModel>>();
+            services.AddScoped<IIngestionService, MockIngestionService>();
 
             //Repositories
             services.AddTransient<IAuthRepository, AuthRepository>();
             services.AddTransient<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<IIngestionRepository, IngestionRepository>();
 
             return services;
         }

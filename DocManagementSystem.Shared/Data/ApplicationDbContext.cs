@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using DocManagementSystem.Shared.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
@@ -20,6 +18,8 @@ public partial class ApplicationDbContext : DbContext
     }
 
     public virtual DbSet<Document> Documents { get; set; }
+
+    public virtual DbSet<Ingestionstatus> Ingestionstatuses { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
 
@@ -59,6 +59,25 @@ public partial class ApplicationDbContext : DbContext
                 .HasColumnType("datetime");
             entity.Property(e => e.Name).HasMaxLength(100);
             entity.Property(e => e.Type).HasMaxLength(60);
+        });
+
+        modelBuilder.Entity<Ingestionstatus>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("ingestionstatus");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.ErrorMessage)
+                .HasColumnType("text")
+                .HasColumnName("error_message");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValueSql("'Pending'")
+                .HasColumnName("status");
+            entity.Property(e => e.TriggeredAt)
+                .HasColumnType("datetime")
+                .HasColumnName("triggered_at");
         });
 
         modelBuilder.Entity<Role>(entity =>
