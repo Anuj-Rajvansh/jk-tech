@@ -23,8 +23,9 @@ This system supports the following features:
    - **Update**: Edit metadata for existing documents.
    - **Delete**: Remove documents from the system.
 
-3. **Logging:**
-   - Logging is implemented throughout the application (in controllers, services, and repositories) to track requests and actions, which aids in troubleshooting and system monitoring.
+3. **Logging and Ingestion Tracking:**
+   - Integrated **Ingestion Controller**, **Service**, and **Repository** for tracking the flow and logging all document-related actions.
+   - Each step of the document processing and authentication flow is logged for better monitoring and troubleshooting.
 
 4. **Unit Testing:**
    - Unit tests are written for controllers, services, and repositories using the **xUnit** framework, ensuring the reliability and correctness of the application.
@@ -47,14 +48,27 @@ This project follows a modular structure that separates responsibilities into di
    - **Controllers**: `DocumentController` provides endpoints for managing documents (create, read, update, delete).
    - **Services**: `DocumentService` handles business logic for document management.
    - **Repositories**: `DocumentRepository` interacts with the database to perform CRUD operations on documents.
+   
+### 3. **Ingestion Tracking Module** (`DocManagementSystem.Ingestion`)
+   - New **Ingestion Controller**, **Service**, and **Repository** have been implemented to track the flow of document ingestion.
+   - Logs all document upload activities, allowing you to trace when a document is ingested, processed, and stored.
 
-### 3. **Shared Module** (`DocManagementSystem.Shared`)
+   **IngestionController**: 
+   Handles the ingestion of documents, logging all document uploads and initiates business logic through the ingestion service.
+   
+   **IngestionService**: 
+   Contains business logic for tracking document ingestion events, including validation and processing.
+
+   **IngestionRepository**: 
+   Interacts with the database to store logs and track the ingestion history of documents.
+
+### 4. **Shared Module** (`DocManagementSystem.Shared`)
    - Contains common models and utility classes used across the application.
    - Includes shared DTOs (Data Transfer Objects), validation models, and helper functions.
 
-### 4. **Testing Module** (`DocManagementSystem.Test`)
+### 5. **Testing Module** (`DocManagementSystem.Test`)
    - Contains unit tests for all core components.
-   - Uses **xUnit** to write tests for the AuthController, DocumentController, services, and repositories.
+   - Uses **xUnit** to write tests for the AuthController, DocumentController, IngestionController, services, and repositories.
 
 ---
 
@@ -78,10 +92,9 @@ To get started with this project locally, follow these steps:
 
 Clone the repository to your local machine using Git:
 
-```bash
+
 git clone https://github.com/Anuj-Rajvansh/jk-tech.git
 cd jk-tech
-```
 
 ### 2. Set Up the MySql Database
 
