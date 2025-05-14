@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DocManagementSystem.Auth\DocManagementSystem.Web.csproj" />
     <ProjectReference Include="..\DocManagementSystem.Services\DocManagementSystem.Services.csproj" />
+    <ProjectReference Include="..\DocManagementSystem.Web\DocManagementSystem.Web.csproj" />
   </ItemGroup>
 
 </Project>

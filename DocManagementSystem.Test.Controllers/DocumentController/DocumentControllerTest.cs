@@ -1,4 +1,4 @@
-﻿using DocManagementSystem.Auth.Controllers;
+﻿using DocManagementSystem.Web.Controllers;
 using DocManagementSystem.Services.Interface;
 using DocManagementSystem.Shared.Models;
 using Microsoft.AspNetCore.Mvc;

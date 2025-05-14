@@ -4,7 +4,7 @@ using DocManagementSystem.Shared.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
-using DocManagementSystem.Auth.Controllers;
+using DocManagementSystem.Web.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
