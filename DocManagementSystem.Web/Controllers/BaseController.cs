@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace DocManagementSystem.Auth.Controllers
+namespace DocManagementSystem.Web.Controllers
 {
     [ApiController]
     public abstract class BaseController : ControllerBase

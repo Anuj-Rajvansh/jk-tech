@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DocManagementSystem.Auth.Controllers
+namespace DocManagementSystem.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

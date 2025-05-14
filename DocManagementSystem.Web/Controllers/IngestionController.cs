@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace DocManagementSystem.Auth.Controllers
+namespace DocManagementSystem.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
