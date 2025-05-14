@@ -83,7 +83,7 @@ git clone https://github.com/Anuj-Rajvansh/jk-tech.git
 cd jk-tech
 ```
 
-### 2. Set Up the Database
+### 2. Set Up the MySql Database
 
 Ensure that you have a database set up for the application. The connection string for the database should be configured in the `appsettings.json` file for both the Auth and Document modules.
 
