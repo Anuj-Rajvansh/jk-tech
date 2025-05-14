@@ -10,7 +10,7 @@ using DocManagementSystem.Shared.ExtensionServices;
 var builder = WebApplication.CreateBuilder(args);
 
 var config = builder.Configuration;
-var connectionString = config.GetConnectionString("DefaultConnection");
+var connectionString = config.GetConnectionString("MySqlDefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
